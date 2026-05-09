@@ -9,6 +9,7 @@ body{
     background-color: #f4f7fc;
     color: #222;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container{
@@ -23,6 +24,8 @@ header{
     padding: 18px 0;
     position: fixed;
     top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 header > div{
@@ -74,7 +77,9 @@ nav a:hover{
     display: flex;
     align-items: center;
     background: linear-gradient(135deg,#0f172a,#1e3a8a);
-    padding-top: 100px;
+    padding: 140px 0 80px;
+    position: relative;
+    z-index: 1;
 }
 
 .banner-content{
@@ -121,6 +126,8 @@ nav a:hover{
     flex: 1;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .banner-image img{
@@ -128,10 +135,13 @@ nav a:hover{
     max-width: 500px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    display: block;
 }
 
 section{
     padding: 100px 0;
+    position: relative;
+    z-index: 2;
 }
 
 .section-title{
@@ -173,18 +183,23 @@ section{
 
 .gallery{
     background-color: white;
+    position: relative;
+    z-index: 2;
 }
 
 .slider{
     position: relative;
     max-width: 800px;
     margin: auto;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .slider img{
     width: 100%;
     border-radius: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    display: block;
 }
 
 .slider-buttons{
@@ -202,6 +217,7 @@ section{
     background-color: #2563eb;
     color: white;
     font-size: 20px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -211,6 +227,8 @@ section{
 
 .contact{
     background-color: #eaf1ff;
+    position: relative;
+    z-index: 3;
 }
 
 #contactForm{
@@ -237,6 +255,7 @@ section{
     font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 #contactForm button:hover{
@@ -247,6 +266,8 @@ footer{
     background-color: #0f172a;
     color: white;
     padding: 60px 0;
+    position: relative;
+    z-index: 3;
 }
 
 .footer-content{
@@ -269,16 +290,15 @@ footer{
     color: #38bdf8;
 }
 
+
 .modal{
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-color: rgba(0,0,0,0.6);
     justify-content: center;
     align-items: center;
+    z-index: 9999;
 }
 
 .modal:target{
@@ -342,29 +362,36 @@ footer{
 }
 
 @media(max-width: 900px){
+
     .banner-content{
         flex-direction: column;
         text-align: center;
     }
+
     .banner-text h1{
         font-size: 40px;
     }
+
     nav ul{
         gap: 15px;
     }
 }
 
 @media(max-width: 600px){
+
     .logo h1{
         font-size: 18px;
     }
+
     nav ul{
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .banner-text h1{
         font-size: 32px;
     }
+
     .section-title{
         font-size: 30px;
     }
